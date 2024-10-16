@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+
+# Flask settings
+instance/
+
+# SQLite database
+*.db
+
+# Other ignored files
+*.log
+*.sqlite3
