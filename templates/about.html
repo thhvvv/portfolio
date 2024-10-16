@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAARkZGACQkJADr6+sAAgICAAsLCwA/Pz8AFBQUAHNzcwBRUVEAJiYmAAQEBAD///8AxMTEAENDQwB3d3cAGBgYAFVVVQA8PDwAERERAE5OTgABAQEANTU1AHt7ewAlJSUAhISEAAMDAwBra2sAysrKAH19fQBSUlIAJycnAO7u7gCPj48AMDAwAAUFBQD39/cAoaGhACAgIADe3t4AiIiIAAcHBwBvb28AEBAQAERERACjo6MAGRkZANfX1wAiIiIAKysrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAACwAEjEeGyoHGAAAAAAAFQAAIQwMAAwMDBcAAAAAAAAAAAwMDAMcAg4ZAAAAAAAAJQ0MDAgWAAUfFQAAAAAAAAABDwwRACEVABMeHhoAAAAAChUMLgwUFSMAAAAAAAAABBANDCkMKAsrJgAAAAAwAAAJDAwnByItIAAAAAAAAAAAAAAMDAwMJC8GAAAAAAAAAAAVHQAAAAAVABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -125,13 +125,13 @@
                             </div>
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid rounded" src="img/service-1.jpg">
+                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid rounded" src="img/service-2.jpg">
+                            <img class="img-fluid rounded"  src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                            <img class="img-fluid rounded" src="img/service-3.jpg">
+                            <img class="img-fluid rounded"  src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="Service 3">
                         </div>
                     </div>
                 </div>
@@ -141,12 +141,12 @@
                     <p class="mb-4">AgriTech is a platform designed to streamline the farming process to success by connecting farmers with valuable resources and customers. We are a dedicated partner to farmers and agricultural professionals, offering innovative solutions to improve farming practices and streamline product exports. Our mission is to make farming smarter, more efficient, and environmentally sustainable through cutting-edge technology and actionable insights.</p>
                     <div class="row g-5 pt-2 mb-5">
                         <div class="col-sm-6">
-                            <img class="img-fluid mb-4" src="img/service.png" alt="">
+                            <img class="img-fluid mb-4"  src="{{ url_for('static', filename='images/service.png') }}" alt="Service">
                             <h5 class="mb-3">Dedicated Services</h5>
                             <span>We strive to ensure that farmers get a rewarding market for their products all over the region as soon as their produce is ready!</span>
                         </div>
                         <div class="col-sm-6">
-                            <img class="img-fluid mb-4" src="img/product.png" alt="">
+                            <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/product.png') }}" alt="Product">
                             <h5 class="mb-3">Organic Products</h5>
                             <span>Get to choose the products that fit your needs straight from the farm.</span>
                         </div>
@@ -160,13 +160,13 @@
 
 
     <!-- Banner Start -->
-    <div class="container-fluid banner my-5 py-5" data-parallax="scroll" data-image-src="img/banner.jpg">
+    <div class="container-fluid banner my-5 py-5" data-parallax="scroll" data-image-src="{{ url_for('static', filename='images/banner.jpg') }}" alt="Banner">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-4">
-                            <img class="img-fluid rounded" src="img/banner-1.jpg" alt="">
+                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/banner-1.jpg') }}" alt="Banner 1">
                         </div>
                         <div class="col-sm-8">
                             <h2 class="text-white mb-3">A market platform for produce</h2>
@@ -178,7 +178,7 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-4">
-                            <img class="img-fluid rounded" src="img/banner-2.jpg" alt="">
+                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/banner-2.jpg') }}" alt="Banner 2">
                         </div>
                         <div class="col-sm-8">
                             <h2 class="text-white mb-3">Offering the best professional advice</h2>

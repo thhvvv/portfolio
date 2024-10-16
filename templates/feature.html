@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAARkZGACQkJADr6+sAAgICAAsLCwA/Pz8AFBQUAHNzcwBRUVEAJiYmAAQEBAD///8AxMTEAENDQwB3d3cAGBgYAFVVVQA8PDwAERERAE5OTgABAQEANTU1AHt7ewAlJSUAhISEAAMDAwBra2sAysrKAH19fQBSUlIAJycnAO7u7gCPj48AMDAwAAUFBQD39/cAoaGhACAgIADe3t4AiIiIAAcHBwBvb28AEBAQAERERACjo6MAGRkZANfX1wAiIiIAKysrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAACwAEjEeGyoHGAAAAAAAFQAAIQwMAAwMDBcAAAAAAAAAAAwMDAMcAg4ZAAAAAAAAJQ0MDAgWAAUfFQAAAAAAAAABDwwRACEVABMeHhoAAAAAChUMLgwUFSMAAAAAAAAABBANDCkMKAsrJgAAAAAwAAAJDAwnByItIAAAAAAAAAAAAAAMDAwMJC8GAAAAAAAAAAAVHQAAAAAVABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -133,28 +133,28 @@
                         <div class="row g-0">
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
                                 <div class="text-center bg-primary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="img/experience.png" alt="">
+                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/experience.png') }}" alt="Experience">
                                     <h1 class="display-6 text-white" data-toggle="counter-up"></h1>
                                     <span class="fs-5 fw-semi-bold text-secondary">Experience</span>
                                 </div>
                             </div>
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
                                 <div class="text-center bg-secondary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="img/award.png" alt="">
+                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/award.png') }}" alt="Award">
                                     <h1 class="display-6" data-toggle="counter-up"></h1>
                                     <span class="fs-5 fw-semi-bold text-primary">Inclusivity</span>
                                 </div>
                             </div>
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
                                 <div class="text-center bg-secondary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="img/animal.png" alt="">
+                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/animal.png') }}" alt="Animal">
                                     <h1 class="display-6" data-toggle="counter-up"></h1>
                                     <span class="fs-5 fw-semi-bold text-primary">Community</span>
                                 </div>
                             </div>
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
                                 <div class="text-center bg-primary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="img/client.png" alt="">
+                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/client.png') }}" alt="Client">
                                     <h1 class="display-6 text-white" data-toggle="counter-up"></h1>
                                     <span class="fs-5 fw-semi-bold text-secondary">Happy Clients</span>
                                 </div>
