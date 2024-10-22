@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 from routes import main
 from config import Config
 from models import db
-from flask import render_template
 
 app = Flask(__name__)
+
 app.config.from_object(Config)
 
 # Initialize the database
@@ -19,7 +19,7 @@ def home():
 
 @app.route('/services')
 def services():
-    return render_template('services.html')
+    return render_template('service.html')
 
 @app.route('/feature')
 def feature():
