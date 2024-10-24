@@ -21,7 +21,7 @@ def home():
 
 @app.route('/services')
 def services():
-    return render_template('service.html')
+    return render_template('services.html')
 
 @app.route('/feature')
 def feature():
@@ -31,8 +31,8 @@ def feature():
 def contact():
     return render_template('contact.html')
 
-@app.route('/about')
-def about():
+@app.route('/about us')
+def about_us():
     return render_template('about.html')
 
 @app.route('/dashboard')

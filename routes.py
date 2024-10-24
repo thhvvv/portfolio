@@ -20,8 +20,8 @@ def feature():
 def contact():
     return render_template('contact.html')
 
-@main.route('/about')
-def about():
+@main.route('/about us')
+def about_us():
     return render_template('about.html')
 
 @main.route('/dashboard', endpoint='main_dashboard')
@@ -45,9 +45,6 @@ def signup():
         return redirect(url_for('main.dashboard'))
     return render_template('signup.html', form=form)
 
-@main.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
 
 # Optional for handling 404 errors
 @main.errorhandler(404)

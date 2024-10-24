@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <title>AgriTech</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAARkZGACQkJADr6+sAAgICAAsLCwA/Pz8AFBQUAHNzcwBRUVEAJiYmAAQEBAD///8AxMTEAENDQwB3d3cAGBgYAFVVVQA8PDwAERERAE5OTgABAQEANTU1AHt7ewAlJSUAhISEAAMDAwBra2sAysrKAH19fQBSUlIAJycnAO7u7gCPj48AMDAwAAUFBQD39/cAoaGhACAgIADe3t4AiIiIAAcHBwBvb28AEBAQAERERACjo6MAGRkZANfX1wAiIiIAKysrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAACwAEjEeGyoHGAAAAAAAFQAAIQwMAAwMDBcAAAAAAAAAAAwMDAMcAg4ZAAAAAAAAJQ0MDAgWAAUfFQAAAAAAAAABDwwRACEVABMeHhoAAAAAChUMLgwUFSMAAAAAAAAABBANDCkMKAsrJgAAAAAwAAAJDAwnByItIAAAAAAAAAAAAAAMDAwMJC8GAAAAAAAAAAAVHQAAAAAVABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon">
@@ -79,8 +77,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link active">Services</a>
+                <a href="about.html" class="nav-item nav-link">About Us</a>
+                <a href="services.html" class="nav-item nav-link active">Services</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
@@ -104,7 +102,7 @@
             <h1 class="display-3 text-white mb-4 animated slideInDown">Services</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Services</li>
                 </ol>
@@ -190,86 +188,89 @@
 
     <!-- Sign Up/In Section -->
     <section id="signin-section">
-		<h2>Sign In / Sign Up</h2>
+    <h2>Sign In / Sign Up</h2>
 
-		<!-- Login Role Switch Buttons -->
-		<div class="login-switch">
-			<button onclick="showLogin('farmer')">Farmer Login</button>
-			<button onclick="showLogin('company')">Company Login</button>
-			<button onclick="showLogin('agrishop')">AgriShop Partner Login</button>
-		</div>
+    <!-- Login Role Switch Buttons -->
+    <div class="login-switch">
+        <button onclick="showLogin('farmer')">Farmer Login</button>
+        <button onclick="showLogin('company')">Company Login</button>
+        <button onclick="showLogin('agrishop')">AgriShop Partner Login</button>
+    </div>
 
-		<!-- Farmer Login Form -->
-		<div id="farmer-login" class="login-form">
-			<h3>Farmer Login</h3>
-			<form>
-				<label for="farmer-email">Email:</label>
-				<input type="email" id="farmer-email" name="farmer-email" required><br>
-				<label for="farmer-password">Password:</label>
-				<input type="password" id="farmer-password" name="farmer-password" required><br>
-				<button type="submit" onclick="loginUser('farmer')">Login</button>
-			</form>
-		</div>
+    <!-- Farmer Login Form -->
+    <div id="farmer-login" class="login-form">
+        <h3>Farmer Login</h3>
+        <form method="POST" action="{{ url_for('main.login') }}">
+            {{ form.hidden_tag() }}
+            <label for="farmer-email">Email:</label>
+            {{ form.email(id='farmer-email') }}<br>
+            <label for="farmer-password">Password:</label>
+            {{ form.password(id='farmer-password') }}<br>
+            <button type="submit" onclick="loginUser('farmer')">Login</button>
+        </form>
+    </div>
 
-		<!-- Company Login Form -->
-		<div id="company-login" class="login-form" style="display:none;">
-			<h3>Company Login</h3>
-			<form>
-				<label for="company-email">Email:</label>
-				<input type="email" id="company-email" name="company-email" required><br>
-				<label for="company-password">Password:</label>
-				<input type="password" id="company-password" name="company-password" required><br>
-				<button type="submit" onclick="loginUser('company')">Login</button>
-			</form>
-		</div>
+    <!-- Company Login Form -->
+    <div id="company-login" class="login-form" style="display:none;">
+        <h3>Company Login</h3>
+        <form method="POST" action="{{ url_for('main.login') }}">
+            {{ form.hidden_tag() }}
+            <label for="company-email">Email:</label>
+            {{ form.email(id='company-email') }}<br>
+            <label for="company-password">Password:</label>
+            {{ form.password(id='company-password') }}<br>
+            <button type="submit" onclick="loginUser('company')">Login</button>
+        </form>
+    </div>
 
-		<!-- AgriShop Partner Login Form -->
-		<div id="agrishop-login" class="login-form" style="display:none;">
-			<h3>Agrishop Partner Login</h3>
-			<form>
-				<label for="agrishop-email">Email:</label>
-				<input type="email" id="agrishop-email" name="agrishop-email" required><br>
-				<label for="agrishop-password">Password:</label>
-				<input type="password" id="agrishop-password" name="agrishop-password" required><br>
-				<button type="submit" onclick="loginUser('agrishop')">Login</button>
-			</form>
-		</div>
-	</section>
+    <!-- AgriShop Partner Login Form -->
+    <div id="agrishop-login" class="login-form" style="display:none;">
+        <h3>Agrishop Partner Login</h3>
+        <form method="POST" action="{{ url_for('main.login') }}">
+            {{ form.hidden_tag() }}
+            <label for="agrishop-email">Email:</label>
+            {{ form.email(id='agrishop-email') }}<br>
+            <label for="agrishop-password">Password:</label>
+            {{ form.password(id='agrishop-password') }}<br>
+            <button type="submit" onclick="loginUser('agrishop')">Login</button>
+        </form>
+    </div>
+</section>
 
-	<!-- Farmer Dashboard -->
-	<div id="farmer-dashboard" style="display:none;">
-		<h4>Farmer Dashboard</h4>
-		<p><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, Farmer!</p>
-		<ul>
-			<li>Check crop status</li>
-			<li>Manage orders</li>
-			<li>Access crop care advice</li>
-			<li>Join Farmers Community</li>
-		</ul>
-	</div>
+        <!-- Farmer Dashboard -->
+        <div id="farmer-dashboard" style="display:none;">
+                <h4>Farmer Dashboard</h4>
+                <p><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, Farmer!</p>
+                <ul>
+                        <li>Check crop status</li>
+                        <li>Manage orders</li>
+                        <li>Access crop care advice</li>
+                        <li>Join Farmers Community</li>
+                </ul>
+        </div>
 
-	<!-- Company Dashboard -->
-	<div id="company-dashboard" style="display:none;">
-		<h4>Company Dashboard</h4>
-		<p><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, Company!</p>
-		<ul>
-			<li>View farmer profiles</li>
-			<li>Manage orders and logistics</li>
-			<li>Monitor product quality</li>
-			<li>Oversee export status</li>
-		</ul>
-	</div>
+        <!-- Company Dashboard -->
+        <div id="company-dashboard" style="display:none;">
+                <h4>Company Dashboard</h4>
+                <p><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, Company!</p>
+                <ul>
+                        <li>View farmer profiles</li>
+                        <li>Manage orders and logistics</li>
+                        <li>Monitor product quality</li>
+                        <li>Oversee export status</li>
+                </ul>
+        </div>
 
-	<!-- AgriShop Dashboard -->
-	<div id="agrishop-dashboard" style="display:none;">
-		<h4>AgriShop Partner Dashboard</h4>
-		<p><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, AgriShop Partner!</p>
-		<ul>
-			<li>List your products</li>
-			<li>View sales and orders</li>
-			<li>Manage inventory</li>
-		</ul>
-	</div>
+        <!-- AgriShop Dashboard -->
+        <div id="agrishop-dashboard" style="display:none;">
+                <h4>AgriShop Partner Dashboard</h4>
+                <p><i class="fa fa-user-circle" aria-hidden="true"></i>Welcome, AgriShop Partner!</p>
+                <ul>
+                        <li>List your products</li>
+                        <li>View sales and orders</li>
+                        <li>Manage inventory</li>
+                </ul>
+        </div>
 
     <!-- Sign Up/In Section -->
 
@@ -339,6 +340,7 @@
 
 
      <!-- JavaScript Libraries -->
+    <script src="static/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
@@ -373,11 +375,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox-plus-jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox-plus-jquery.min.map"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.js"></script>
-
-    
-   <!-- Template Javascript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
     <script>
 $(document).ready(function() {
     $('.counter').counterUp({
@@ -387,7 +385,5 @@ $(document).ready(function() {
 });
 </script>
 <div class="counter" data-count="100">0</div>
-    <script src="static/app.js"></script>
-</body>
 
 </html>
