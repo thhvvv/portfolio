@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome!</h1>
+        <nav>
+            <ul>
+                <li><a href="/farmer-dashboard">Farmer Dashboard</a></li>
+                <li><a href="/company-dashboard">Company Dashboard</a></li>
+                <li><a href="/agrishop-dashboard">AgriShop Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="dashboard-content">
+        <h2>Dashboard Overview</h2>
+        <p>Welcome back, {{ current_user.username }}!</p>
+        
+        <!-- Dynamic content for different users can go here -->
+        <div id="farmer-dashboard" style="display:none;">
+            <h4>Farmer Dashboard</h4>
+            <p>Check crop status, manage orders, and more.</p>
+        </div>
+
+        <div id="company-dashboard" style="display:none;">
+            <h4>Company Dashboard</h4>
+            <p>Manage logistics, view farmer profiles, and oversee product quality.</p>
+        </div>
+
+        <div id="agrishop-dashboard" style="display:none;">
+            <h4>AgriShop Dashboard</h4>
+            <p>List products, manage sales, and view orders.</p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AgriTech. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+

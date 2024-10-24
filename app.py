@@ -1,10 +1,12 @@
 from flask import Flask, render_template
 from routes import main
 from config import Config
+from forms import csrf
 from models import db
+from flask_login import LoginManager, login_required, current_user
 
 app = Flask(__name__)
-
+csrf.init_app(app)
 app.config.from_object(Config)
 
 # Initialize the database
@@ -32,6 +34,21 @@ def contact():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+# Initialize Flask-Login
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+# Define the user loader callback for Flask-Login
+@login_manager.user_loader
+def load_user(user_id):
+    # Load and return the user object by its ID
+    return User.get(user_id)
 
 # Optional for handling 404 errors
 @app.errorhandler(404)

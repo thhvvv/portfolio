@@ -5,7 +5,8 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def home():
-    return render_template('index.html')
+    form = LoginForm()
+    return render_template('index.html', form=form)
 
 @main.route('/services')
 def services():
@@ -22,6 +23,11 @@ def contact():
 @main.route('/about')
 def about():
     return render_template('about.html')
+
+@main.route('/dashboard', endpoint='main_dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
