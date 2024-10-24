@@ -1,5 +1,7 @@
-from flask import Flask, Blueprint, render_template, redirect, url_for, request
-from forms import LoginForm, SignUpForm
+from flask import Flask, Blueprint, render_template, redirect, url_for, request, flash
+from flask_login import login_user
+from werkzeug.security import check_password_hash
+from users.forms import LoginForm, SignUpForm
 
 main = Blueprint('main', __name__)
 
@@ -24,7 +26,7 @@ def contact():
 def about_us():
     return render_template('about.html')
 
-@main.route('/dashboard', endpoint='main_dashboard')
+@main.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
 
