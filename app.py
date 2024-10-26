@@ -55,6 +55,10 @@ def about_us():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route("/test")
+def test():
+    return "The test route is working!"
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

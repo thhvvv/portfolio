@@ -6,40 +6,44 @@
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
 
+<body>
     <div class="container">
         <h2>Login</h2>
-
-        <!-- Flash messages for errors/success -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-
-        <!-- Login form -->
-        <form method="POST" action="{{ url_for('login') }}">
+        
+        <form id="login-form" method="POST" action="{{ url_for('auth.login') }}">
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+            <button type="submit" class="btn btn-primary">Sign In</button>
 
-        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+            <!-- Google Sign-In Button -->
+            <button type="button" id="google-signin-button" class="gsi-material-button">
+                <div class="gsi-material-button-icon">
+                    <!-- Google SVG icon here -->
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                        <!-- SVG paths for Google logo -->
+                    </svg>
+                </div>
+                <span>Sign in with Google</span>
+            </button>
+
+            <a href="{{ url_for('auth.request_password') }}">Forgot Password?</a>
+
+            <div class="signup-link">
+                <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign Up</a></p>
+            </div>
+        </form>
     </div>
 
+    <!-- External JavaScript for login form -->
+    <script type="module" src="{{ url_for('static', filename='scripts/login.js') }}"></script>
 </body>
 </html>
-
