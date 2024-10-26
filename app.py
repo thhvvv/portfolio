@@ -1,13 +1,14 @@
 from flask import Flask, render_template, flash, redirect, url_for
 from users.routes import main
+from users.auth import auth
+from flask_wtf import CSRFProtect
 from config import Config
-from users.forms import csrf
-from models.models import db, User
+from models.user import User
+from models import db
 from flask_login import LoginManager, login_required, current_user, login_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
-csrf.init_app(app)
 app.config.from_object(Config)
 
 # Initialize the database
@@ -15,6 +16,19 @@ db.init_app(app)
 
 # Register blueprints
 app.register_blueprint(main)
+app.register_blueprint(auth, url_prefix='/auth')
+
+# Initialize CSRF protection
+csrf = CSRFProtect(app)  
+
+# Initialize Flask-Login
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+# Define the user loader callback for Flask-Login
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route('/')
 def home():
@@ -41,15 +55,6 @@ def about_us():
 def dashboard():
     return render_template('dashboard.html')
 
-# Initialize Flask-Login
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-# Define the user loader callback for Flask-Login
-@login_manager.user_loader
-def load_user(user_id):
-    # Load and return the user object by its ID
-    return User.query.get(int(user_id))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

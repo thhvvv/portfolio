@@ -1,7 +1,5 @@
 from flask import Flask, Blueprint, render_template, redirect, url_for, request, flash
-from flask_login import login_user
-from werkzeug.security import check_password_hash
-from users.forms import LoginForm, SignUpForm
+from users.forms import LoginForm
 
 main = Blueprint('main', __name__)
 
@@ -29,23 +27,6 @@ def about_us():
 @main.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
-
-
-@main.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        # Handle login logic (e.g., check email and password)
-        return redirect(url_for('main.dashboard'))
-    return render_template('login.html', form=form)
-
-@main.route('/signup', methods=['GET', 'POST'])
-def signup():
-    form = SignUpForm()
-    if form.validate_on_submit():
-        # Handle sign up logic
-        return redirect(url_for('main.dashboard'))
-    return render_template('signup.html', form=form)
 
 
 # Optional for handling 404 errors

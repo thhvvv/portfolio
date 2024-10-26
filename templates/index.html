@@ -359,7 +359,7 @@
     <!-- Farmer Login Form -->
     <div id="farmer-login" class="login-form">
         <h3>Farmer Login</h3>
-        <form method="POST" action="{{ url_for('main.login') }}">
+        <form method="POST" action="{{ url_for('auth.login') }}">
             {{ form.hidden_tag() }}
             <label for="farmer-email">Email:</label>
             {{ form.email(id='farmer-email') }}<br>
@@ -372,7 +372,7 @@
     <!-- Company Login Form -->
     <div id="company-login" class="login-form" style="display:none;">
         <h3>Company Login</h3>
-        <form method="POST" action="{{ url_for('main.login') }}">
+        <form method="POST" action="{{ url_for('auth.login') }}">
             {{ form.hidden_tag() }}
             <label for="company-email">Email:</label>
             {{ form.email(id='company-email') }}<br>
@@ -385,7 +385,7 @@
     <!-- AgriShop Partner Login Form -->
     <div id="agrishop-login" class="login-form" style="display:none;">
         <h3>Agrishop Partner Login</h3>
-        <form method="POST" action="{{ url_for('main.login') }}">
+        <form method="POST" action="{{ url_for('auth.login') }}">
             {{ form.hidden_tag() }}
             <label for="agrishop-email">Email:</label>
             {{ form.email(id='agrishop-email') }}<br>
