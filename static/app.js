@@ -63,3 +63,42 @@ function showLogin(role) {
     }
 }
 
+// app.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Login Form Validation
+    const loginForm = document.querySelector('form#loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+            const email = loginForm.email.value.trim();
+            const password = loginForm.password.value.trim();
+
+            if (!email || !password) {
+                alert('Please fill in all fields.');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    }
+
+    // Signup Form Validation
+    const signupForm = document.querySelector('form#signupForm');
+    if (signupForm) {
+        signupForm.addEventListener('submit', (event) => {
+            const username = signupForm.username.value.trim();
+            const email = signupForm.email.value.trim();
+            const password = signupForm.password.value.trim();
+            const confirmPassword = signupForm.confirm_password.value.trim();
+
+            if (!username || !email || !password || !confirmPassword) {
+                alert('Please fill in all fields.');
+                event.preventDefault(); // Prevent form submission
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    }
+});
+

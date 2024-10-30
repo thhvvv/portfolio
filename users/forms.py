@@ -1,11 +1,13 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, DecimalField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, Regexp
 
 class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8)])
-    submit = SubmitField('Login')
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Sign Up')
 
 class SignUpForm(FlaskForm):
     name = StringField('Name', validators=[
@@ -23,3 +25,8 @@ class SignUpForm(FlaskForm):
         EqualTo('password', message='Passwords must match.')
     ])
     submit = SubmitField('Create Account')
+
+class ProductForm(FlaskForm):
+    name = StringField('Product Name', validators=[DataRequired()])
+    price = DecimalField('Price', validators=[DataRequired()])
+    submit = SubmitField('Submit')    

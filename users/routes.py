@@ -20,8 +20,8 @@ def feature():
 def contact():
     return render_template('contact.html')
 
-@main.route('/about us')
-def about_us():
+@main.route('/about')
+def about():
     return render_template('about.html')
 
 @main.route('/dashboard')

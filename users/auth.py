@@ -14,9 +14,9 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and user.check_password(form.password.data):
             login_user(user)
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.index'))
         else:
-            flash('Invalid credentials, please try again', 'error')
+            flash('Invalid username or password, please try again', 'error')
     return render_template('login.html', form=form)
 
 @auth.route('/signup', methods=['GET', 'POST'])
@@ -31,3 +31,7 @@ def signup():
         return redirect(url_for('auth.login'))
     return render_template('signup.html', form=form)
 
+@auth.route('/request_password', methods=['GET', 'POST'])
+def request_password():
+    # Your logic for password request
+    return render_template('request_password.html')
