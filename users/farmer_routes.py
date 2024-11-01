@@ -2,14 +2,15 @@ from flask import Blueprint, request, jsonify, flash, redirect, url_for, render_
 from .forms import ProductForm
 from models.product import Product  # Assuming you have a Product model
 import paypalrestsdk
+import os
 
 farmer_bp = Blueprint('farmer_routes', __name__)
 
 # Configure the PayPal SDK
 paypalrestsdk.configure({
     "mode": "sandbox",  # or "live"
-    "client_id": "Acwg4xRrxtXPMPxbRzvodfjreL9TdB8lG51Hq3TUrMH2mEKY7gLLFC8nzAHrkcoH534yGCXZbf6gu6-X",
-    "client_secret": "EId1pe2UtS7d7ZCjyQD6Rde-BkuiR88GHc9o1Q4cc3pbRm9uDhkFhayAhORY0WdWziTGZw6AjRRUeHQJ"
+    "client_id": os.getenv("Acwg4xRrxtXPMPxbRzvodfjreL9TdB8lG51Hq3TUrMH2mEKY7gLLFC8nzAHrkcoH534yGCXZbf6gu6-X"),
+    "client_secret": os.getenv("EId1pe2UtS7d7ZCjyQD6Rde-BkuiR88GHc9o1Q4cc3pbRm9uDhkFhayAhORY0WdWziTGZw6AjRRUeHQJ")
 })
 
 

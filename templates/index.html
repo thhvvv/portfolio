@@ -121,17 +121,16 @@ $(document).ready(function() {
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
-                <a href="services.html" class="nav-item nav-link">Services</a>
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="#about" class="nav-item nav-link">About Us</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.html" class="dropdown-item">Features</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                        <a href="#features" class="dropdown-item">Features</a>
+                        <a href="#services" class="dropdown-item">Services</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
             <div class="border-start ps-4 d-none d-lg-block">
                 <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
@@ -189,90 +188,111 @@ $(document).ready(function() {
     <!-- Carousel End -->
 
 
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5 align-items-end">
-                <div class="col-lg-6">
-                    <div class="row g-2">
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="Service 3">
+    <!-- About Us Section -->
+<section id="about" class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-end">
+            <!-- Images and Experience Section -->
+            <div class="col-lg-6">
+                <div class="row g-2">
+                    <div class="col-12 position-relative wow fadeIn" data-wow-delay="0.7s">
+                        <div class="about-experience bg-secondary rounded">
+                            <h1 class="display-6 mb-0 text-white text-center py-3">Smart Farm Partner</h1>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="section-title bg-white text-start text-primary pe-3">AgriTech</p>
-                    <h1 class="mb-4">About Us</h1>
-                    <p class="mb-4">This is a platform designed to streamline the farming process to success by connecting farmers with valuable resources and customers. We are a dedicated partner to farmers and agricultural professionals, offering innovative solutions to improve farming practices and streamline product exports. Our mission is to make farming smarter, more efficient, and environmentally sustainable through cutting-edge technology and actionable insights.</p>
-                    <div class="row g-5 pt-2 mb-5">
-                        <div class="col-sm-6">
-                            <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/service.png') }}" alt="Service">
-                            <h5 class="mb-3">Dedicated Services</h5>
-                            <span>We strive to ensure that farmers get a rewarding market for their products all over the region as soon as their produce is ready!</span>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/product.png') }}" alt="Product">
-                            <h5 class="mb-3">Organic Products</h5>
-                            <span>Get to choose the products that fit your needs straight from the farm.</span>
-                        </div>
+                    <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
+                        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
                     </div>
-                    <a class="btn btn-secondary rounded-pill py-3 px-5" href="">Explore More</a>
+                    <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
+                        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
+                    </div>
+                    <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
+                        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="Service 3">
+                    </div>
                 </div>
+            </div>
+
+            <!-- About Text Content -->
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <p class="section-title bg-white text-start text-primary pe-3">About Us</p>
+                <h1 class="mb-4">Welcome to AgriTech</h1>
+                <p class="mb-4">AgriTech is a platform designed to streamline the farming process by connecting farmers with essential resources, innovative solutions, and markets. Our mission is to make farming smarter, more efficient, and environmentally sustainable. As a dedicated partner to farmers, we strive to ensure the best agricultural products reach their destinations on time, worldwide.</p>
+
+                <!-- Mission & Values -->
+                <h3>Our Mission</h3>
+                <p>To bridge the gap between farmers and international markets, providing seamless logistics and quality control, so the finest produce reaches global consumers. We support farmers every step of the way, offering tools, resources, and an expansive platform for selling produce globally.</p>
+
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Innovation:</strong> Embracing technology to improve farming processes.</li>
+                    <li><strong>Sustainability:</strong> Commitment to eco-friendly practices.</li>
+                    <li><strong>Community:</strong> Supporting local farmers and connecting them to each other.</li>
+                    <li><strong>Integrity:</strong> Built on transparency and trust with farmers and partners.</li>
+                </ul>
+
+                <div class="row g-5 pt-2 mb-5">
+                    <div class="col-sm-6">
+                        <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/service.png') }}" alt="Service">
+                        <h5 class="mb-3">Dedicated Services</h5>
+                        <span>Ensuring farmers have a rewarding market across the region as soon as their produce is ready.</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/product.png') }}" alt="Product">
+                        <h5 class="mb-3">Organic Products</h5>
+                        <span>Select products that meet your needs, fresh from the farm.</span>
+                    </div>
+                </div>
+
+                <a class="btn btn-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
             </div>
         </div>
     </div>
-    <!-- About End -->
+</section>
+<!-- About End -->
 
 
     <!-- Features Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title bg-white text-start text-primary pe-3">Why Us!</p>
-                    <h1 class="mb-4">Our Mission</h1>
-                    <p class="mb-4">We aim to bridge the gap between farmers and international markets, providing seamless logistics and quality control that ensures the best agricultural products reach their destinations on time. We support farmers from the farm to the marketplace, offering tools, resources,and a platform to sell their produce globally.</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Guarantee of professionalism!</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>A market for fresh produce</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Professional advice</p>
-                    <a class="btn btn-secondary rounded-pill py-3 px-5 mt-3" href="">Explore More</a>
-                </div>
-                <div class="col-lg-6">
-                    <div class="rounded overflow-hidden">
-                        <div class="row g-0">
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                                <div class="text-center bg-primary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/experience.png') }}" alt="Experience">
-                                    <h1 class="display-6 text-white" data-toggle="counter-up"></h1>
-                                    <span class="fs-5 fw-semi-bold text-secondary">Experience</span>
-                                </div>
+<section id="features" class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <!-- Text Content Section -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title bg-white text-start text-primary pe-3">Why Us!</p>
+                
+                <p class="mb-4">At AgriTech, we aim to bridge the gap between farmers and international markets, providing seamless logistics and quality control to ensure the best agricultural products reach their destinations on time. Supporting farmers from the farm to the marketplace, we offer essential tools, resources, and a global platform to empower farmers and deliver quality produce worldwide.</p>
+                
+                <!-- Key Features -->
+                <p><i class="fa fa-check text-primary me-3"></i>Professionalism in every service</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Expansive market access for fresh produce</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Expert guidance for improved farming practices</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Commitment to inclusivity and eco-friendly farming</p>
+                <a class="btn btn-secondary rounded-pill py-3 px-5 mt-3" href="">Explore More</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="rounded overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="text-center bg-primary py-5 px-4">
+                                <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/experience.png') }}" alt="Experience">
+                                <span class="fs-5 fw-semi-bold text-secondary">Experience</span>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                                <div class="text-center bg-secondary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/award.png') }}" alt="Award">
-                                    <h1 class="display-6" data-toggle="counter-up"></h1>
-                                    <span class="fs-5 fw-semi-bold text-primary">Inclusivity</span>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="text-center bg-secondary py-5 px-4">
+                                <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/award.png') }}" alt="Award">
+                                <span class="fs-5 fw-semi-bold text-primary">Inclusivity</span>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                                <div class="text-center bg-secondary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/animal.png') }}" alt="Animal">
-                                    <h1 class="display-6" data-toggle="counter-up"></h1>
-                                    <span class="fs-5 fw-semi-bold text-primary">Community</span>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="text-center bg-secondary py-5 px-4">
+                                <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/animal.png') }}" alt="Animal">
+                                <span class="fs-5 fw-semi-bold text-primary">Community</span>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
-                                <div class="text-center bg-primary py-5 px-4">
-                                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/client.png') }}" alt="Client">
-                                    <h1 class="display-6 text-white" data-toggle="counter-up"></h1>
-                                    <span class="fs-5 fw-semi-bold text-secondary">Happy Clients</span>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="text-center bg-primary py-5 px-4">
+                                <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/client.png') }}" alt="Client">
+                                <span class="fs-5 fw-semi-bold text-secondary">Happy Clients</span>
                             </div>
                         </div>
                     </div>
@@ -280,7 +300,8 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-    <!-- Features End -->
+</section>
+<!-- Features End -->
 
 
     <!-- Banner Start -->
@@ -318,77 +339,78 @@ $(document).ready(function() {
 
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="section-title bg-white text-center text-primary px-3">Our Services</p>
-                <h1 class="mb-5">Services That We Offer For Partners</h1>
+<section id="services" class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <p class="section-title bg-white text-center text-primary px-3">Our Services</p>
+            <h1 class="mb-5">Services We Offer Our Partners</h1>
+        </div>
+        <div class="row gy-5 gx-4">
+            <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item d-flex h-100">
+                    <div class="service-img">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Crop Plan">
+                    </div>
+                    <div class="service-text p-5 pt-0">
+                        <div class="service-icon">
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Crop Plan">
+                        </div>
+                        <h5 class="mb-3">Crop Plan</h5>
+                        <p class="mb-4">Organize farming schedules and track crop growth.</p>
+                        <a class="btn btn-square rounded-circle" href=""><i class="fa fa-calendar"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="row gy-5 gx-4">
-                <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item d-flex h-100">
-                        <div class="service-img">
-                            <img class="img-fluid" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
+            <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item d-flex h-100">
+                    <div class="service-img">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/service-4.jpg') }}" alt="Farmers Community">
+                    </div>
+                    <div class="service-text p-5 pt-0">
+                        <div class="service-icon">
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-4.jpg') }}" alt="Farmers Community">
                         </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
-                            </div>
-                            <h5 class="mb-3">Crop Plan</h4>
-                            <p class="mb-4">Organize farming schedules and track crop growth.</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="fa fa-sticky-note"></i></a>
-                        </div>
+                        <h5 class="mb-3">Farmers Community</h5>
+                        <p class="mb-4">Join farming groups and learn from experts.</p>
+                        <a class="btn btn-square rounded-circle" href=""><i class="fa fa-users"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex h-100">
-                        <div class="service-img">
-				<img class="img-fluid" src="{{ url_for('static', filename='images/service-4.jpg') }}" alt="Service 4">
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item d-flex h-100">
+                    <div class="service-img">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Crop Care Advice">
+                    </div>
+                    <div class="service-text p-5 pt-0">
+                        <div class="service-icon">
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Crop Care Advice">
                         </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-4.jpg') }}" alt="Service 4">
-                            </div>
-                            <h5 class="mb-3">Farmers Community</h5>
-                            <p class="mb-4">Join farming groups and learn from experts</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="fa fa-users"></i></a>
-                        </div>
+                        <h5 class="mb-3">Crop Care Advice</h5>
+                        <p class="mb-4">Expert guidance for nurturing quality produce.</p>
+                        <a class="btn btn-square rounded-circle" href=""><i class="fa fa-leaf"></i></a>
                     </div>
                 </div>
-		<div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item d-flex h-100">
-                        <div class="service-img">
-                            <img class="img-fluid"  src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
-                        </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
-                            </div>
-                            <h5 class="mb-3">Crop Care Advice</h5>
-                            <p class="mb-4">Expert advice for nurturing quality produce.</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="fa fa-leaf"></i></a>
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item d-flex h-100">
+                    <div class="service-img">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="AgriShop">
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item d-flex h-100">
-                        <div class="service-img">
-                            <img class="img-fluid"  src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="Service 3">
+                    <div class="service-text p-5 pt-0">
+                        <div class="service-icon">
+                            <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="AgriShop">
                         </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="Service 3">
-                            </div>
-                            <h5 class="mb-3">AgriShop</h5>
-                            <p class="mb-4">Find nearby veterinary services, fertilizers, and more.</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="fa fa-shopping-cart"></i></a>
-                        </div>
+                        <h5 class="mb-3">AgriShop</h5>
+                        <p class="mb-4">Find nearby veterinary services, fertilizers, and more.</p>
+                        <a class="btn btn-square rounded-circle" href=""><i class="fa fa-shopping-cart"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Services End -->
+</section>
+<!-- Services End -->
+
 
     <!-- Sign Up/In Section -->
 <section id="signin-section">
@@ -481,9 +503,9 @@ $(document).ready(function() {
     <!-- Service End -->
 
 
-    <!-- Footer Start -->
+    <!-- Contact Start -->
+    <section id="contact" class="container py-5">
     <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Our Office</h5>
@@ -524,7 +546,7 @@ $(document).ready(function() {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Footer End -->
 
 
