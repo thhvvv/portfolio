@@ -14,10 +14,19 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and user.check_password(form.password.data):
             login_user(user)
-            return redirect(url_for('main.index'))
+            # Redirect based on the user's role
+            if user.role == 'farmer':
+                return redirect(url_for('farmer.farmer_dashboard'))
+            elif user.role == 'company':
+                return redirect(url_for('company.company_dashboard'))
+            elif user.role == 'agrishop':
+                return redirect(url_for('agrishop.agrishop_dashboard'))
+            else:
+                return redirect(url_for('main.index'))  # Default redirect
         else:
             flash('Invalid username or password, please try again', 'error')
     return render_template('login.html', form=form)
+
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():

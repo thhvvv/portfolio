@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, render_template, flash, redirect, url_for, request
 from users.routes import main
 from users.auth import auth
 from users import user_blueprint
@@ -9,7 +9,6 @@ from models import db
 from flask_login import LoginManager, login_required, current_user, login_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from users.farmer_routes import farmer_bp
-# from users import main
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -28,65 +27,87 @@ with app.app_context():
     db.create_all()
 
 # Initialize CSRF protection
-csrf = CSRFProtect(app)  
+csrf = CSRFProtect(app)
 
 # Initialize Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
+login_manager.login_view = 'farmer_login'
 
 # Define the user loader callback for Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# Home route
 @app.route('/')
 def home():
     return render_template('index.html')
 
-
-@app.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('dashboard.html')
-
-@app.route("/test")
-def test():
-    return "The test route is working!"
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user and user.check_password(form.password.data):
+# Farmer login route
+@app.route('/farmer-login', methods=['GET', 'POST'])
+def farmer_login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email).first()
+        if user and user.is_farmer and check_password_hash(user.password, password):
             login_user(user)
-            if user.role == 'farmer':
-                return redirect(url_for('farmer_dashboard'))
-            elif user.role == 'company':
-                return redirect(url_for('company_dashboard'))
-            elif user.role == 'agrishop':
-                return redirect(url_for('agrishop_dashboard'))
-        else:
-            flash('Invalid credentials, please try again')
-    return render_template('login.html', form=form)
+            return redirect(url_for('farmer_dashboard'))  # Redirect to farmer dashboard
+        flash('Invalid credentials, please try again.')
+    return render_template('farmer-login.html')
 
+# Company login route
+@app.route('/company-login', methods=['GET', 'POST'])
+def company_login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email).first()
+        if user and user.is_company and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect(url_for('company_dashboard'))  # Redirect to company dashboard
+        flash('Invalid credentials, please try again.')
+    return render_template('company-login.html')
+
+# Agrishop login route
+@app.route('/agrishop-login', methods=['GET', 'POST'])
+def agrishop_login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email).first()
+        if user and user.is_agrishop and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect(url_for('agrishop_dashboard'))  # Redirect to agrishop dashboard
+        flash('Invalid credentials, please try again.')
+    return render_template('agrishop-login.html')
+
+# Dashboard for farmer
 @app.route('/farmer_dashboard')
 @login_required
 def farmer_dashboard():
-    return render_template('farmer_dashboard.html')
+    if current_user.is_farmer:
+        return render_template('farmer_dashboard.html')
+    return redirect(url_for('home'))  # Redirect to home if the user is not a farmer
 
+# Dashboard for company
 @app.route('/company_dashboard')
 @login_required
 def company_dashboard():
-    return render_template('company_dashboard.html')
+    if current_user.is_company:
+        return render_template('company_dashboard.html')
+    return redirect(url_for('home'))  # Redirect to home if the user is not a company
 
+# Dashboard for agrishop
 @app.route('/agrishop_dashboard')
 @login_required
 def agrishop_dashboard():
-    return render_template('agrishop_dashboard.html')
+    if current_user.is_agrishop:
+        return render_template('agrishop_dashboard.html')
+    return redirect(url_for('home'))  # Redirect to home if the user is not an agrishop
 
-
+# Optional route for user registration
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':

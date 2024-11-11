@@ -128,6 +128,7 @@ $(document).ready(function() {
                     <div class="dropdown-menu bg-light m-0">
                         <a href="#features" class="dropdown-item">Features</a>
                         <a href="#services" class="dropdown-item">Services</a>
+			<a href="#login" class="dropdown-item">Log In</a>
                     </div>
                 </div>
                 <a href="#contact" class="nav-item nav-link">Contact</a>
@@ -191,59 +192,52 @@ $(document).ready(function() {
     <!-- About Us Section -->
 <section id="about" class="container-xxl py-5">
     <div class="container">
-        <div class="row g-5 align-items-end">
-            <!-- Images and Experience Section -->
-            <div class="col-lg-6">
-                <div class="row g-2">
-                    <div class="col-12 position-relative wow fadeIn" data-wow-delay="0.7s">
-                        <div class="about-experience bg-secondary rounded">
-                            <h1 class="display-6 mb-0 text-white text-center py-3">Smart Farm Partner</h1>
-                        </div>
-                    </div>
-                    <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
-                    </div>
-                    <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
-                    </div>
-                    <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                        <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-3.jpg') }}" alt="Service 3">
-                    </div>
+        <div class="text-center wow fadeIn" data-wow-delay="0.5s">
+            <!-- About Text Content -->
+            <p class="section-title bg-white text-primary d-inline-block">About Us</p>
+            <h1 class="mb-4">Welcome to AgriTech</h1>
+            <p class="mb-4">AgriTech is a platform designed to streamline the farming process by connecting farmers with essential resources, innovative solutions, and markets. Our mission is to make farming smarter, more efficient, and environmentally sustainable. As a dedicated partner to farmers, we strive to ensure the best agricultural products reach their destinations on time, worldwide.</p>
+
+            <!-- Mission & Values -->
+            <h3>Our Mission</h3>
+            <p>To bridge the gap between farmers and international markets, providing seamless logistics and quality control, so the finest produce reaches global consumers. We support farmers every step of the way, offering tools, resources, and an expansive platform for selling produce globally.</p>
+
+            <h3>Our Values</h3>
+            <ul class="list-unstyled">
+                <li><strong>Innovation:</strong> Embracing technology to improve farming processes.</li>
+                <li><strong>Sustainability:</strong> Commitment to eco-friendly practices.</li>
+                <li><strong>Community:</strong> Supporting local farmers and connecting them to each other.</li>
+                <li><strong>Integrity:</strong> Built on transparency and trust with farmers and partners.</li>
+            </ul>
+
+            <div class="row g-5 pt-2 mb-5 justify-content-center">
+                <div class="col-sm-6">
+                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/service.png') }}" alt="Service">
+                    <h5 class="mb-3">Dedicated Services</h5>
+                    <span>Ensuring farmers have a rewarding market across the region as soon as their produce is ready.</span>
+                </div>
+                <div class="col-sm-6">
+                    <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/product.png') }}" alt="Product">
+                    <h5 class="mb-3">Organic Products</h5>
+                    <span>Select products that meet your needs, fresh from the farm.</span>
                 </div>
             </div>
 
-            <!-- About Text Content -->
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <p class="section-title bg-white text-start text-primary pe-3">About Us</p>
-                <h1 class="mb-4">Welcome to AgriTech</h1>
-                <p class="mb-4">AgriTech is a platform designed to streamline the farming process by connecting farmers with essential resources, innovative solutions, and markets. Our mission is to make farming smarter, more efficient, and environmentally sustainable. As a dedicated partner to farmers, we strive to ensure the best agricultural products reach their destinations on time, worldwide.</p>
+            <a class="btn btn-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
+        </div>
 
-                <!-- Mission & Values -->
-                <h3>Our Mission</h3>
-                <p>To bridge the gap between farmers and international markets, providing seamless logistics and quality control, so the finest produce reaches global consumers. We support farmers every step of the way, offering tools, resources, and an expansive platform for selling produce globally.</p>
-
-                <h3>Our Values</h3>
-                <ul>
-                    <li><strong>Innovation:</strong> Embracing technology to improve farming processes.</li>
-                    <li><strong>Sustainability:</strong> Commitment to eco-friendly practices.</li>
-                    <li><strong>Community:</strong> Supporting local farmers and connecting them to each other.</li>
-                    <li><strong>Integrity:</strong> Built on transparency and trust with farmers and partners.</li>
-                </ul>
-
-                <div class="row g-5 pt-2 mb-5">
-                    <div class="col-sm-6">
-                        <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/service.png') }}" alt="Service">
-                        <h5 class="mb-3">Dedicated Services</h5>
-                        <span>Ensuring farmers have a rewarding market across the region as soon as their produce is ready.</span>
-                    </div>
-                    <div class="col-sm-6">
-                        <img class="img-fluid mb-4" src="{{ url_for('static', filename='images/product.png') }}" alt="Product">
-                        <h5 class="mb-3">Organic Products</h5>
-                        <span>Select products that meet your needs, fresh from the farm.</span>
-                    </div>
-                </div>
-
-                <a class="btn btn-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
+        <!-- Images Section -->
+        <div class="row g-2 justify-content-center mt-5">
+            <div class="col-12 position-relative wow fadeIn" data-wow-delay="0.7s">
+            </div>
+            <div class="col-6 col-md-4 wow fadeIn" data-wow-delay="0.1s">
+                <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-1.jpg') }}" alt="Service 1">
+            </div>
+            <div class="col-6 col-md-4 wow fadeIn" data-wow-delay="0.3s">
+                <img class="img-fluid rounded" src="{{ url_for('static', filename='images/service-2.jpg') }}" alt="Service 2">
+            </div>
+            <div class="col-6 col-md-4 wow fadeIn" data-wow-delay="0.5s">
+                <img class="img-fluid rounded" src="{{ url_for('static', filename='images/gallery-2.jpg') }}" alt="Gallery 2">
             </div>
         </div>
     </div>
@@ -305,37 +299,36 @@ $(document).ready(function() {
 
 
     <!-- Banner Start -->
-    <div class="container-fluid banner my-5 py-5" data-parallax="scroll" data-image-src="images/banner.jpg">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-sm-4">
-                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/carousel-1.jpg') }}" alt="Carousel 1">
-                        </div>
-                        <div class="col-sm-8">
-				<h2 class="text-white mb-3">A market for your fresh produce!</h2>
-                            <p class="text-white mb-4">AgriTech seeks to remove the role of the middlemen and giving them the choise to name the price of their produce</p>
-                            <a class="btn btn-secondary rounded-pill py-2 px-4" href="">Read More</a>
-                        </div>
+<div class="container-fluid banner my-5 py-5 position-relative" data-parallax="scroll" data-image-src="{{ url_for('static', filename='images/banner.jpg') }}">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
+    <div class="container py-5 position-relative" style="z-index: 1;">
+        <div class="row g-5">
+            <!-- Left Banner Content -->
+            <div class="col-lg-6 wow fadeIn text-white" data-wow-delay="0.3s">
+                <div class="d-flex">
+                    <img class="img-fluid rounded me-4" src="{{ url_for('static', filename='images/gallery-5.jpg') }}" alt="Gallery 5" style="width: 150px;">
+                    <div>
+                        <h2 class="mb-3">A Market for Your Fresh Produce</h2>
+                        <p class="mb-4">AgriTech empowers farmers to set fair prices, reducing reliance on middlemen and increasing profits.</p>
+                        <a class="btn btn-secondary rounded-pill py-2 px-4" href="#">Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-sm-4">
-                            <img class="img-fluid rounded" src="{{ url_for('static', filename='images/carousel-2.jpg') }}" alt="Carousel 2">
-                        </div>
-                        <div class="col-sm-8">
-                            <h2 class="text-white mb-3">Offering professional advice</h2>
-                            <p class="text-white mb-4">AgriTech is giving a platform to professionals to give our farmers the best care advice fitting their produce and soil types for maximum yield!</p>
-                            <a class="btn btn-secondary rounded-pill py-2 px-4" href="">Read More</a>
-                        </div>
+            </div>
+            <!-- Right Banner Content -->
+            <div class="col-lg-6 wow fadeIn text-white" data-wow-delay="0.5s">
+                <div class="d-flex">
+                    <img class="img-fluid rounded me-4" src="{{ url_for('static', filename='images/gallery-7.jpg') }}" alt="Gallery 7" style="width: 150px;">
+                    <div>
+                        <h2 class="mb-3">Professional Farming Advice</h2>
+                        <p class="mb-4">Our experts provide tailored advice to maximize yield and soil health, ensuring sustainable growth.</p>
+                        <a class="btn btn-secondary rounded-pill py-2 px-4" href="#">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Banner End -->
+</div>
+<!-- Banner End -->
 
 
     <!-- Service Start -->
@@ -412,55 +405,136 @@ $(document).ready(function() {
 <!-- Services End -->
 
 
-    <!-- Sign Up/In Section -->
-<section id="signin-section">
-    <h2>Sign In / Sign Up</h2>
+    <!-- Log In Section -->
+<section id="login">
+	<div class="con_box">
+
+                <div class="cont_one">
+                    <div class="flexbottom_text">
+                        <h2 class="sign-heading">Log In</h2>
+                    </div>
+                </div>
 
     <!-- Login Role Switch Buttons -->
     <div class="login-switch">
-        <button onclick="showLogin('farmer')">Farmer Login</button>
-        <button onclick="showLogin('company')">Company Login</button>
-        <button onclick="showLogin('agrishop')">AgriShop Partner Login</button>
+        <button onclick="showLogin('farmer')">Farmer</button>
+    </div>
+
+    <div class="login-switch">
+        <button onclick="showLogin('company')">Company</button>
+    </div>
+
+    <div class="login-switch">
+        <button onclick="showLogin('agrishop')">AgriShop</button>
     </div>
 
     <!-- Farmer Login Form -->
-    <div id="farmer-login" class="login-form">
-        <h3>Farmer Login</h3>
-        <form method="POST" action="{{ url_for('auth.login') }}">
-            {{ form.hidden_tag() }}
-            <label for="farmer-email">Email:</label>
-            {{ form.email(id='farmer-email') }}<br>
-            <label for="farmer-password">Password:</label>
-            {{ form.password(id='farmer-password') }}<br>
-            <button type="submit" onclick="loginUser('farmer')">Login</button>
-        </form>
+        <div id="farmer-login-form" class="auth-form" style="display: none;">
+            <div class="form-toggle">
+                <button onclick="toggleForm('signin')">Sign In</button>
+                <button onclick="toggleForm('signup')">Sign Up</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="farmer-signin" class="form-section" onsubmit="handleSignIn(event)">
+                <h3>Farmer Sign In</h3>
+                <label for="signin-email">Email:</label>
+                <input type="email" id="signin-email" name="email" required>
+
+                <label for="signin-password">Password:</label>
+                <input type="password" id="signin-password" name="password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="farmer-signup" class="form-section" style="display: none;" onsubmit="handleSignUp(event)">
+                <h3>Farmer Sign Up</h3>
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" required>
+
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="password" required>
+
+                <label for="signup-confirm-password">Confirm Password:</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Company Login Form -->
+        <div id="company-login-form" class="auth-form" style="display: none;">
+            <div class="form-toggle">
+                <button onclick="toggleForm('signin')">Sign In</button>
+                <button onclick="toggleForm('signup')">Sign Up</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="company-signin" class="form-section" onsubmit="handleSignIn(event)">
+                <h3>Company Sign In</h3>
+                <label for="signin-email">Email:</label>
+                <input type="email" id="signin-email" name="email" required>
+                
+                <label for="signin-password">Password:</label>
+                <input type="password" id="signin-password" name="password" required>
+                
+                <button type="submit">Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="company-signup" class="form-section" style="display: none;" onsubmit="handleSignUp(event)">
+                <h3>Company Sign Up</h3>
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" required>
+                
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="password" required>
+                
+                <label for="signup-confirm-password">Confirm Password:</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- AgriShop Login Form -->
+        <div id="agrishop-login-form" class="auth-form" style="display: none;">
+            <div class="form-toggle">
+                <button onclick="toggleForm('signin')">Sign In</button>
+                <button onclick="toggleForm('signup')">Sign Up</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="agrishop-signin" class="form-section" onsubmit="handleSignIn(event)">
+                <h3>AgriShop Sign In</h3>
+                <label for="signin-email">Email:</label>
+                <input type="email" id="signin-email" name="email" required>
+                
+                <label for="signin-password">Password:</label>
+                <input type="password" id="signin-password" name="password" required>
+                
+                <button type="submit">Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="agrishop-signup" class="form-section" style="display: none;" onsubmit="handleSignUp(event)">
+                <h3>AgriShop Sign Up</h3>
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" required>
+                
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="password" required>
+                
+                <label for="signup-confirm-password">Confirm Password:</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
     </div>
 
-    <!-- Company Login Form -->
-    <div id="company-login" class="login-form" style="display:none;">
-        <h3>Company Login</h3>
-        <form method="POST" action="{{ url_for('auth.login') }}">
-            {{ form.hidden_tag() }}
-            <label for="company-email">Email:</label>
-            {{ form.email(id='company-email') }}<br>
-            <label for="company-password">Password:</label>
-            {{ form.password(id='company-password') }}<br>
-            <button type="submit" onclick="loginUser('company')">Login</button>
-        </form>
-    </div>
-
-    <!-- AgriShop Partner Login Form -->
-    <div id="agrishop-login" class="login-form" style="display:none;">
-        <h3>Agrishop Partner Login</h3>
-        <form method="POST" action="{{ url_for('auth.login') }}">
-            {{ form.hidden_tag() }}
-            <label for="agrishop-email">Email:</label>
-            {{ form.email(id='agrishop-email') }}<br>
-            <label for="agrishop-password">Password:</label>
-            {{ form.password(id='agrishop-password') }}<br>
-            <button type="submit" onclick="loginUser('agrishop')">Login</button>
-        </form>
-    </div>
 </section>
 
         <!-- Farmer Dashboard -->

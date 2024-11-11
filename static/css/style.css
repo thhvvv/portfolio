@@ -254,6 +254,24 @@
     justify-content: center;
 }
 
+/*** Banner ***/
+.banner {
+        background-image: url('/static/images/banner.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Adjust as needed */
+        position: relative;
+    }
+
+.overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+.img-fluid {
+        max-width: 100%;
+        height: auto; /* Keeps aspect ratio */
+    }
 
 /*** Service ***/
 .service-item {
@@ -346,7 +364,7 @@
 }
 
 /* General styling for the sign-in section */
-#signin-section {
+#login {
     padding: 20px;
     background-color: #f4f4f4;
     border-radius: 8px;
@@ -355,7 +373,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#signin-section h2 {
+#login h2 {
     text-align: center;
     margin-bottom: 20px;
 }
@@ -364,6 +382,9 @@
 .login-switch {
     text-align: center;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .login-switch button {

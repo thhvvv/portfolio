@@ -50,16 +50,26 @@
 })(jQuery);
 
 function showLogin(role) {
-    document.getElementById('farmer-login').style.display = 'none';
-    document.getElementById('company-login').style.display = 'none';
-    document.getElementById('agrishop-login').style.display = 'none';
-
     if (role === 'farmer') {
-        document.getElementById('farmer-login').style.display = 'block';
+        window.location.href = '/farmer-login.html';
     } else if (role === 'company') {
-        document.getElementById('company-login').style.display = 'block';
+        window.location.href = '/company-login.html';
     } else if (role === 'agrishop') {
-        document.getElementById('agrishop-login').style.display = 'block';
+        window.location.href = '/agrishop-login.html';
+    }
+}
+
+// Toggle between Sign In and Sign Up forms
+function toggleForm(type) {
+    const signinForm = document.getElementById('farmer-signin');
+    const signupForm = document.getElementById('farmer-signup');
+
+    if (type === 'signin') {
+        signinForm.style.display = 'block';
+        signupForm.style.display = 'none';
+    } else if (type === 'signup') {
+        signinForm.style.display = 'none';
+        signupForm.style.display = 'block';
     }
 }
 
@@ -67,38 +77,34 @@ function showLogin(role) {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Login Form Validation
-    const loginForm = document.querySelector('form#loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', (event) => {
-            const email = loginForm.email.value.trim();
-            const password = loginForm.password.value.trim();
+    const loginForms = document.querySelectorAll('.auth-form form');
+    loginForms.forEach(form => {
+        form.addEventListener('submit', (event) => {
+            const email = form.querySelector('input[name="email"]').value.trim();
+            const password = form.querySelector('input[name="password"]').value.trim();
 
             if (!email || !password) {
                 alert('Please fill in all fields.');
-                event.preventDefault(); // Prevent form submission
+                event.preventDefault();
             }
         });
-    }
+    });
 
     // Signup Form Validation
-    const signupForm = document.querySelector('form#signupForm');
-    if (signupForm) {
-        signupForm.addEventListener('submit', (event) => {
-            const username = signupForm.username.value.trim();
-            const email = signupForm.email.value.trim();
-            const password = signupForm.password.value.trim();
-            const confirmPassword = signupForm.confirm_password.value.trim();
+    const signupForms = document.querySelectorAll('.auth-form form');
+    signupForms.forEach(form => {
+        form.addEventListener('submit', (event) => {
+            const email = form.querySelector('input[name="email"]').value.trim();
+            const password = form.querySelector('input[name="password"]').value.trim();
+            const confirmPassword = form.querySelector('input[name="confirm-password"]').value.trim();
 
-            if (!username || !email || !password || !confirmPassword) {
+            if (!email || !password || !confirmPassword) {
                 alert('Please fill in all fields.');
-                event.preventDefault(); // Prevent form submission
-            }
-
-            if (password !== confirmPassword) {
+                event.preventDefault();
+            } else if (password !== confirmPassword) {
                 alert('Passwords do not match.');
-                event.preventDefault(); // Prevent form submission
+                event.preventDefault();
             }
         });
-    }
+    });
 });
-

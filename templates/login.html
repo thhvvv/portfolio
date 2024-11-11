@@ -2,95 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- You can add your CSS styles here -->
+    <style>
+        /* Basic styles for demonstration */
+        .login-switch button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
 
-     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/ajax-loader.gif"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.video.play.png"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js.map"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/images/close.png"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/images/loading.gif"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/images/next.png"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/images/prev.png"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox-plus-jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox-plus-jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox-plus-jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox-plus-jquery.min.map"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.js"></script>
-    <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
-    <script>
-$(document).ready(function() {
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000
-    });
-});
-</script>
+        .auth-form {
+            margin-top: 20px;
+        }
 
+        .form-toggle button {
+            margin-right: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        .form-section {
+            margin-top: 15px;
+        }
+
+        .form-section label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+
+        .form-section input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        
-        <form id="login-form" method="POST" action="{{ url_for('auth.login') }}">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
 
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-            </div>
+    <!-- Log In Section -->
+    <section id="login">
+        <div class="con_box">
 
-            <button type="submit" class="btn btn-primary">Sign In</button>
-
-            <!-- Google Sign-In Button -->
-            <button type="button" id="google-signin-button" class="gsi-material-button">
-                <div class="gsi-material-button-icon">
-                    <!-- Google SVG icon here -->
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                        <!-- SVG paths for Google logo -->
-                    </svg>
+            <div class="cont_one">
+                <div class="flexbottom_text">
+                    <h2 class="sign-heading">
+                        Log in
+                    </h2>
                 </div>
-                <span>Sign in with Google</span>
-            </button>
-
-            <a href="{{ url_for('auth.request_password') }}">Forgot Password?</a>
-
-            <div class="signup-link">
-                <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign Up</a></p>
             </div>
-        </form>
-    </div>
 
-    <!-- External JavaScript for login form -->
-    <script type="module" src="{{ url_for('static', filename='scripts/login.js') }}"></script>
+            <!-- Login Role Switch Buttons -->
+            <div class="login-switch">
+                <button onclick="showLogin('farmer')">Farmer</button>
+            </div>
+
+            <div class="login-switch">
+                <button onclick="showLogin('company')">Company</button>
+            </div>
+
+            <div class="login-switch">
+                <button onclick="showLogin('agrishop')">AgriShop</button>
+            </div>
+
+            <!-- Farmer Login Form -->
+            <div id="farmer-login-form" class="auth-form" style="display: none;">
+                <div class="form-toggle">
+                    <button type="button" onclick="toggleForm('signin')">Sign In</button>
+                    <button type="button" onclick="toggleForm('signup')">Sign Up</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <form id="farmer-signin" class="form-section" onsubmit="handleSignIn(event)">
+                    <h3>Farmer Sign In</h3>
+                    <label for="signin-email">Email:</label>
+                    <input type="email" id="signin-email" name="email" required>
+                    
+                    <label for="signin-password">Password:</label>
+                    <input type="password" id="signin-password" name="password" required>
+                    
+                    <button type="submit">Sign In</button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="farmer-signup" class="form-section" style="display: none;" onsubmit="handleSignUp(event)">
+                    <h3>Farmer Sign Up</h3>
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    
+                    <label for="signup-confirm-password">Confirm Password:</label>
+                    <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+
+            <!-- You can add similar forms for 'company' and 'agrishop' roles here -->
+
+        </div>
+    </section>
+
+    <script>
+        // Function to display the selected role's login form
+        function showLogin(role) {
+            // Hide all auth forms first
+            const authForms = document.querySelectorAll('.auth-form');
+            authForms.forEach(form => form.style.display = 'none');
+
+            // Display the selected role's form
+            const selectedForm = document.getElementById(`${role}-login-form`);
+            if (selectedForm) {
+                selectedForm.style.display = 'block';
+                // Show the Sign In form by default
+                toggleForm('signin');
+            }
+        }
+
+        // Function to toggle between Sign In and Sign Up forms
+        function toggleForm(formType) {
+            const signInForm = document.getElementById('farmer-signin');
+            const signUpForm = document.getElementById('farmer-signup');
+
+            if (formType === 'signin') {
+                signInForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+            } else if (formType === 'signup') {
+                signInForm.style.display = 'none';
+                signUpForm.style.display = 'block';
+            }
+        }
+
+        // Function to handle Sign In
+        function handleSignIn(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const email = document.getElementById('signin-email').value;
+            const password = document.getElementById('signin-password').value;
+
+            // Simple validation (for demonstration purposes)
+            if (email && password) {
+                // TODO: Implement actual authentication logic here
+
+                // Redirect to farmer dashboard
+                window.location.href = 'farmer_dashboard.html';
+            } else {
+                alert('Please enter both email and password.');
+            }
+        }
+
+        // Function to handle Sign Up
+        function handleSignUp(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+            // Simple validation (for demonstration purposes)
+            if (email && password && confirmPassword) {
+                if (password === confirmPassword) {
+                    // TODO: Implement actual account creation logic here
+
+                    // Redirect to farmer dashboard
+                    window.location.href = 'farmer_dashboard.html';
+                } else {
+                    alert('Passwords do not match.');
+                }
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
 </body>
 </html>
+
